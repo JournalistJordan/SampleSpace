@@ -1,1 +1,1 @@
-Change to the other Home page by putting index.html
+Change to the other Home page by putting index. html
