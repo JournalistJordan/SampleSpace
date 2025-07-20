@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PersonSpace | DataDanSampleSpace</title>
 
-  <!-- # GLOBAL DARK STYLING -->
+  <!-- # GLOBAL DARK THEME STYLES -->
   <style>
     body {
       margin: 0;
@@ -14,6 +14,7 @@
       color: #c9d1d9;
     }
 
+    /* # HEADER & NAVIGATION STYLES */
     header, footer {
       background-color: #161b22;
       padding: 1rem 2rem;
@@ -41,6 +42,7 @@
       color: #238636;
     }
 
+    /* # MAIN CONTENT LAYOUT */
     main {
       max-width: 900px;
       margin: auto;
@@ -56,27 +58,7 @@
       margin-bottom: 2.5rem;
     }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .gallery img {
-      max-width: 250px;
-      border-radius: 8px;
-      border: 2px solid #58a6ff;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #8b949e;
-    }
-  </style>
-</head>
-<body>
-      /* # GALLERY GRID STYLING */
+    /* # GALLERY GRID STYLING */
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -106,44 +88,53 @@
       transform: translateY(0);
     }
 
-  <!-- # HEADER WITH SITE NAVIGATION -->
-  <header>
-    <h1>Person Space</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="DataDanProSpace.html">Prospace</a>
-        <a href="DataDanPersonSpace.html">PersonSpace</a>
-      </nav>
+    /* # FOOTER STYLING */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+  </style>
+</head>
 
+<body>
+  <!-- # HEADER WITH PAGE TITLE & NAV LINKS -->
+  <header>
+    <h1>PersonSpace</h1>
+    <nav>
+      <a href="/DataDanSampleSpace/index.html">Home</a>
+      <a href="/DataDanSampleSpace/projects.html">Prospace</a>
+      <a href="/DataDanSampleSpace/contact.html">PersonSpace</a>
     </nav>
   </header>
 
+  <!-- # MAIN PAGE CONTENT -->
   <main>
-    <!-- # ABOUT ME SECTION -->
+    <!-- # PERSONAL INTRODUCTION -->
     <section class="section">
       <h2>🎒 Adventures Beyond Data</h2>
       <p>I believe creativity and curiosity don’t end at the desk. Here’s a glimpse into the stories that shape me outside of code.</p>
     </section>
 
-       <!-- # IMAGE GALLERY WITH FADE-IN EFFECT -->
+    <!-- # IMAGE GALLERY WITH FADE-IN EFFECT -->
     <section class="section">
       <h2>📸 Gallery</h2>
       <div class="gallery">
-        <img src="images/FoodV1.jpg" alt="Hiking Trail" class="fade-in" />
-        <img src="images/DrinkV1.jpg" alt="Camera Setup" class="fade-in" />
-        <img src="images/Waterfall.jpg" alt="Homecooked Meal" class="fade-in" />
-        <img src="images/Travel.jpg" alt="Homecooked Meal" class="fade-in" />
+        <img src="Images/FoodV1.jpg" alt="Food" class="fade-in" />
+        <img src="Images/Waterfall.jpg" alt="Waterfalls" class="fade-in" />
+        <img src="Images/DrinkV1.jpg" alt="Coffee" class="fade-in" />
+        <img src="Images/Travel.jpg" alt="Travel" class="fade-in" />
       </div>
     </section>
 
-    <!-- # CONTACT METHODS OR SOCIAL LINKS -->
+    <!-- # CONTACT INFO & SOCIAL LINKS -->
     <section class="section">
       <h2>🌐 Connect</h2>
-      <p>Let's talk about music, travel, nature, or analytics over coffee! Reach out via:</p>
+      <p>Let's talk about music, food, nature, or AI over coffee or code! Reach out via:</p>
       <ul>
-        <li>Email: <a href="mailto:Jordy3338@gmail.com">Jordy3338@gmail.com</a></li>
-        <li>Instagram: @Jordan__Foltz</li>
-        <li>LinkedIn: linkedin.com/in/jordan-foltz</li>
+        <li>Email: <a href="mailto:dan@datadansamplespace.com">dan@datadansamplespace.com</a></li>
+        <li>Instagram: @datadan.space</li>
+        <li>Twitter: @DataDanHQ</li>
       </ul>
     </section>
   </main>
@@ -152,5 +143,27 @@
   <footer>
     &copy; 2025 DataDanSampleSpace | PersonSpace
   </footer>
+
+  <!-- # JAVASCRIPT TO TRIGGER FADE-IN ON SCROLL -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>
