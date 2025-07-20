@@ -76,9 +76,39 @@
   </style>
 </head>
 <body>
+      /* # GALLERY GRID STYLING */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .gallery img {
+      max-width: 250px;
+      border-radius: 8px;
+      border: 2px solid #58a6ff;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* # FADE-IN ANIMATION ON SCROLL */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   <!-- # HEADER WITH SITE NAVIGATION -->
   <header>
-    <h1>PersonSpace</h1>
+    <h1>Person Space</h1>
       <nav>
         <a href="index.html">Home</a>
         <a href="DataDanProSpace.html">Prospace</a>
@@ -95,20 +125,21 @@
       <p>I believe creativity and curiosity don’t end at the desk. Here’s a glimpse into the stories that shape me outside of code.</p>
     </section>
 
-    <!-- # IMAGE GALLERY FOR HOBBIES & LIFE -->
+       <!-- # IMAGE GALLERY WITH FADE-IN EFFECT -->
     <section class="section">
       <h2>📸 Gallery</h2>
       <div class="gallery">
-        <img src="images/hiking.jpg" alt="Hiking Trail" />
-        <img src="images/photography.jpg" alt="Camera Setup" />
-        <img src="images/foodie.jpg" alt="Homecooked Meal" />
+        <img src="images/FoodV1.jpg" alt="Hiking Trail" class="fade-in" />
+        <img src="images/DrinkV1.jpg" alt="Camera Setup" class="fade-in" />
+        <img src="images/Waterfall.jpg" alt="Homecooked Meal" class="fade-in" />
+        <img src="images/Travel.jpg" alt="Homecooked Meal" class="fade-in" />
       </div>
     </section>
 
     <!-- # CONTACT METHODS OR SOCIAL LINKS -->
     <section class="section">
       <h2>🌐 Connect</h2>
-      <p>Let's talk about music, travel, nature, or analytics over coffee or code! Reach out via:</p>
+      <p>Let's talk about music, travel, nature, or analytics over coffee! Reach out via:</p>
       <ul>
         <li>Email: <a href="mailto:Jordy3338@gmail.com">Jordy3338@gmail.com</a></li>
         <li>Instagram: @Jordan__Foltz</li>
